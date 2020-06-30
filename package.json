@@ -2,7 +2,7 @@
   "name": "chor-player",
   "version": "1.0.0",
   "scripts": {
-      "build": "parcel build index.html"
+      "build": "parcel build index.html --public-url /chor-player/"
   },
   "devDependencies": {
     "parcel": "^1.12.4"
