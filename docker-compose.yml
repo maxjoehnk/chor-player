@@ -1,0 +1,16 @@
+version: '3'
+services:
+    player:
+        build: .
+        image: chor-player:latest
+        labels:
+            traefik.enable: "true"
+            traefik.http.middlewares.chor-player-stripprefix.stripprefix.prefixes: /chor-player
+            traefik.http.routers.chor-player.middlewares: chor-player-stripprefix
+            traefik.http.routers.chor-player.rule: Host(`projects.maxjoehnk.me`) && PathPrefix(`/chor-player`)
+        networks:
+          - web
+networks:
+    web:
+        external:
+            name: web
